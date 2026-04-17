@@ -13,17 +13,17 @@ const Timeline = () => {
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
-    const stored = localStorage.getItem("kk_timeline");
-    if (stored) {
-      setInteractions(JSON.parse(stored));
-    } else {
-      const seed = [];
-      localStorage.setItem("timeline", JSON.stringify(seed));
-      setInteractions(seed);
-    }
-  }, []);
+  const stored = localStorage.getItem("kk_timeline");
+  if (stored) {
+    setInteractions(JSON.parse(stored));
+  } else {
+    const seed = [];
+    localStorage.setItem("kk_timeline", JSON.stringify(seed));
+    setInteractions(seed);
+  }
+}, []);
 
-  const filterOptions = ["All", "Text", "Call", "Video",];
+  const filterOptions = ["All", "Text", "Call", "Video"];
 
   const filtered = filter === "All" 
     ? interactions 

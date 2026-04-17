@@ -35,26 +35,24 @@ const FriendDetail = () => {
       })}, [id]);
 
   const handleCheckIn = (type) => {
-    if (!friend) return;
+  if (!friend) return;
 
-    const newEntry = {
-      id: Date.now(),
-      type,
-      title: `${type} with ${friend.name}`,
-      with: friend.name,
-      date: new Date().toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }),
-    };
-
-    const existing = JSON.parse(localStorage.getItem("kk_timeline") || "[]");
-    localStorage.setItem("kk_timeline", JSON.stringify([newEntry, ...existing]));
-
-    setToast({ message: `${type} with ${friend.name} logged!` });
-    setTimeout(() => navigate("/timeline"), 1800);
+  const newEntry = {
+    id: Date.now(),
+    type,
+    title: `${type} with ${friend.name}`,
+    with: friend.name,
+    date: new Date().toLocaleDateString("en-US", {
+      year: "numeric", month: "long", day: "numeric",
+    }),
   };
+
+  const existing = JSON.parse(localStorage.getItem("kk_timeline") || "[]");
+  localStorage.setItem("kk_timeline", JSON.stringify([newEntry, ...existing]));
+
+  setToast({ message: `${type} with ${friend.name} logged!` });
+  //  No navigate — user stays on the friend detail page
+};
 
   if (loading) {
     return (
