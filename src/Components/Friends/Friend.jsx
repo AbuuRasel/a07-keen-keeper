@@ -17,8 +17,7 @@ const FriendCard = ({ friend }) => {
   return (
     <div 
       onClick={() => navigate(`/friend/${friend.id}`)}
-      className="bg-white rounded-[16px] p-6 pb-5 flex flex-col items-center gap-2 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
-    >
+      className="bg-white rounded-[16px] p-6 pb-5 flex flex-col items-center gap-2 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200 cursor-pointer group">
       <img
         src={friend.picture}
         alt={friend.name}
@@ -27,9 +26,9 @@ const FriendCard = ({ friend }) => {
           e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
             friend.name
           )}&background=1e4035&color=fff`;
-        }}
-      />
-      <h3 className="text-[1rem] font-bold text-[#1a2e26] m-0 text-center font-serif">
+        }}/>
+        
+      <h3 className="text-[1rem] font-bold text-[#1a2e26] m-0 text-center">
         {friend.name}
       </h3>
       <p className="text-[0.78rem] text-[#8fa89e] m-0">
